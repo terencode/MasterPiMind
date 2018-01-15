@@ -40,7 +40,8 @@ def AAfilledRoundedRect(surface, rect, color, radius=0.4):
 
     circle = pygame.Surface([min(rect.size) * 3] * 2, SRCALPHA)
     pygame.draw.ellipse(circle, (0, 0, 0), circle.get_rect(), 0)
-    circle = pygame.transform.smoothscale(circle, [int(min(rect.size) * radius)] * 2)
+    circle = pygame.transform.smoothscale(circle,
+                                          [int(min(rect.size) * radius)] * 2)
 
     radius = rectangle.blit(circle, (0, 0))
     radius.bottomright = rect.bottomright
@@ -58,6 +59,7 @@ def AAfilledRoundedRect(surface, rect, color, radius=0.4):
 
     return surface.blit(rectangle, pos)
 
+
 pygame.init()
 
 window = pygame.display.set_mode((1000, 900))
@@ -73,14 +75,14 @@ for i in range(130, 850, 80):
 
 for l in range(90, 890, 80):
     for r in range(380, 660, 80):
-        pygame.gfxdraw.aacircle(window, r, l, 15, GameColor.BROWN_DARK.value)
-        pygame.gfxdraw.filled_circle(window, r, l, 15, GameColor.BROWN_DARK.value)
-        pygame.gfxdraw.aacircle(window, r, l, 20, GameColor.BROWN_DARK.value)
+        gfxdraw.aacircle(window, r, l, 15, GameColor.BROWN_DARK.value)
+        gfxdraw.filled_circle(window, r, l, 15, GameColor.BROWN_DARK.value)
+        gfxdraw.aacircle(window, r, l, 20, GameColor.BROWN_DARK.value)
 
 i = 100
 for color in GameColor:
-    pygame.gfxdraw.aacircle(window, 50, i, 20, color.value)
-    pygame.gfxdraw.filled_circle(window, 50, i, 20, color.value)
+    gfxdraw.aacircle(window, 50, i, 20, color.value)
+    gfxdraw.filled_circle(window, 50, i, 20, color.value)
     i += 50
 
 pygame.display.update()
